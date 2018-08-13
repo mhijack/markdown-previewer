@@ -11,18 +11,21 @@ class App extends Component {
 		super(props);
 		this.state = {
 			input: placeholder,
-			markdown: marked(placeholder)
 		}
+	}
+	handleChange = event => {
+		this.setState({
+			input: event.target.value
+		})
 	}
     render() {
         return (
             <div className="App">
-                <Editor id="editor-container" input={this.state.input}/>
-				<Preview id="preview-container" markdown={this.state.markdown}/>
+                <Editor id="editor-container" input={this.state.input} handleChange={this.handleChange}/>
+				<Preview id="preview-container" markdown={marked(this.state.input)}/>
             </div>
         );
     }
 }
-
 
 export default App;
