@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Editor from './components/Editor';
 import Preview from './components/Preview';
 import placeholder from './components/placeholder';
 import marked from 'marked';
 import './App.css';
+
+marked.setOptions({
+	breaks: true,
+	// headerPrefix: "header",
+	// sanitize: true,
+	// gfm: true
+})
 
 class App extends Component {
 	constructor(props) {
